@@ -84,7 +84,7 @@
             <h1>Employee Report</h1>
 
             <div class="icon-container">
-                <a href="emp_add"><img src="images/add-user.png" alt="Add Employee"></a>
+                <a href="register"><img src="images/add-user.png" alt="Add Employee"></a>
                 <a href="./"><img src="images/home.png" alt="Home"></a>
             </div>
 
