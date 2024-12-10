@@ -27,16 +27,16 @@ public class Employee
 	private Integer empno;
 	
 	@NonNull
-	@Column(length = 30)
+	@Column(length = 50)
 	private String ename;
 	
 	@NonNull
-	@Column(length = 20)
+	@Column(length = 50)
 	private String job;
 	
 	@NonNull
 	private Double Sal;
 	
 	@NonNull
-	private Integer deptno;
+	private Integer deptno=20;
 }

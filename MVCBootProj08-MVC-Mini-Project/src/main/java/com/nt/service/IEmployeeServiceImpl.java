@@ -3,6 +3,7 @@ package com.nt.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.nt.entity.Employee;
@@ -17,6 +18,13 @@ public class IEmployeeServiceImpl implements IEmployeeService
 	@Override
 	public List<Employee> showAllEmps() 
 	{
-		return empRepo.findAll();
+		Sort sort=Sort.by(Sort.Order.asc("empno"));
+		return empRepo.findAll(sort);
+	}
+
+	@Override
+	public String registerEmps(Employee emp) {
+		int idVal=empRepo.save(emp).getEmpno();
+		return "Employee registered with id:: "+idVal;
 	}
 }
