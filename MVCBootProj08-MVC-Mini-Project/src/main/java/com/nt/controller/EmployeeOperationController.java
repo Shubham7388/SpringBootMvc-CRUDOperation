@@ -71,4 +71,10 @@ public class EmployeeOperationController
 		attrs.addFlashAttribute("resultMsg", msg);
 		return "redirect:report";
 	}
+	
+	@GetMapping("/edit")
+	public String getEditEmpForm()
+	{
+		return "emp_edit";
+	}
 }
