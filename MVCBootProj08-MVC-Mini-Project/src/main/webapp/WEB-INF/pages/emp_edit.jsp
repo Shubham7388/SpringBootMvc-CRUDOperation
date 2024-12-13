@@ -1,5 +1,6 @@
-<%@ page isELIgnored="false"%>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm"%>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="frm" %>
+
 
 
 <style>
@@ -84,30 +85,33 @@
 }
 
 </style>
-
 <body>
     <header>
-        Employee Register Form
+        Employee Edit Form
     </header>
-    <frm:form modelAttribute="empl">
-        <h1>Add Employee</h1>
+    <frm:form modelAttribute="emply">
+        <h1>Update Employee</h1>
         <table>
+                    <tr>
+                <td><label for="ename">Employee Number</label></td>
+                <td><frm:input path="empno" readonly="true" /></td>
+            </tr>
             <tr>
                 <td><label for="ename">Employee Name</label></td>
-                <td><frm:input path="ename" id="ename" /></td>
+                <td><frm:input path="ename" /></td>
             </tr>
             <tr>
                 <td><label for="job">Employee Job</label></td>
-                <td><frm:input path="job" id="job" /></td>
+                <td><frm:input path="job"/></td>
             </tr>
             <tr>
                 <td><label for="sal">Employee Salary</label></td>
-                <td><frm:input path="sal" id="sal" /></td>
+                <td><frm:input path="sal"/></td>
             </tr>
             <tr>
                 <td><label for="deptno">Dept No.</label></td>
                 <td>
-                    <frm:select path="deptno" id="deptno">
+                    <frm:select path="deptno" >
                         <frm:option value="10">10</frm:option>
                         <frm:option value="20">20</frm:option>
                         <frm:option value="30">30</frm:option>
@@ -115,7 +119,7 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="submit" value="Submit" /></td>
+                <td><input type="submit" value="Update" /></td>
                 <td><input type="reset" value="Clear" /></td>
             </tr>
         </table>

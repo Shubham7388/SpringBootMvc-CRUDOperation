@@ -3,11 +3,13 @@ package com.nt.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.nt.entity.Employee;
@@ -73,8 +75,18 @@ public class EmployeeOperationController
 	}
 	
 	@GetMapping("/edit")
-	public String getEditEmpForm()
+	public String getEditEmpForm(@RequestParam("no") int no,@ModelAttribute("emply") Employee emp)
 	{
+		Employee emp1=empService.getEmployee(no);
+		BeanUtils.copyProperties(emp1, emp);
 		return "emp_edit";
+	}
+	
+	@PostMapping("/edit")
+	public String submitEditForm(RedirectAttributes aatrs,@ModelAttribute("emply") Employee emp)
+	{
+		String msg=empService.registerEditForm(emp);
+		aatrs.addFlashAttribute("editMsg", msg);
+		return "redirect:report";
 	}
 }

@@ -1,6 +1,7 @@
 package com.nt.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -26,5 +27,17 @@ public class IEmployeeServiceImpl implements IEmployeeService
 	public String registerEmps(Employee emp) {
 		int idVal=empRepo.save(emp).getEmpno();
 		return "Employee registered with id:: "+idVal;
+	}
+
+	@Override
+	public Employee getEmployee(int no) {
+		Employee emp=empRepo.findById(no).orElseThrow(()->new IllegalArgumentException());
+	return emp;
+	}
+
+	@Override
+	public String registerEditForm(Employee emp) {
+		int idVal=empRepo.save(emp).getEmpno();
+		return "Employee is updated with id:: "+idVal;
 	}
 }

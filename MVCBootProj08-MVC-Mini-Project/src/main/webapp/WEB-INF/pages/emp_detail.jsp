@@ -108,7 +108,7 @@ td img {
 							<td>${emp.job}</td>
 							<td>${emp.sal}</td>
 							<td>${emp.deptno}</td>
-							<td><a href="emp_edit?no=${emp.empno}"> <img
+							<td><a href="edit?no=${emp.empno}"> <img
 									src="images/edit.png" alt="Edit">
 							</a> &nbsp;&nbsp; <a href="emp_delete?no=${emp.empno}"> <img
 									src="images/delete.png" alt="Delete">
@@ -122,8 +122,18 @@ td img {
 			<h1>Employees Not Found</h1>
 		</c:otherwise>
 	</c:choose>
-<h2 style="color: #4b5320; background-color: #f9f5f0; text-align: center; padding: 10px; border: 2px solid #8b0000; border-radius: 5px; width: 50%; margin: 20px auto; font-size: 1.5rem; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">${resultMsg}</h2>
-	<div class="back-button">
+<c:choose>
+    <c:when test="${not empty resultMsg}">
+        <h2 style="color: #4b5320; background-color: #f9f5f0; text-align: center; padding: 10px; border: 2px solid #8b0000; border-radius: 5px; width: 50%; margin: 20px auto; font-size: 1.5rem; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            ${resultMsg}
+        </h2>
+    </c:when>
+    <c:when test="${not empty editMsg}">
+        <h2 style="color: #8b5320; background-color: #f2f5e0; text-align: center; padding: 10px; border: 2px solid #00008b; border-radius: 5px; width: 50%; margin: 20px auto; font-size: 1.5rem; font-weight: bold; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+            ${editMsg}
+        </h2>
+    </c:when>
+</c:choose>	<div class="back-button">
 		<a href="./"><img src="images/back.png" alt="Back"></a>
 	</div>
 
