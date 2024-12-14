@@ -10,4 +10,5 @@ public interface IEmployeeService
    public String registerEmps(Employee emp);
    public  Employee getEmployee(int no);
    public String registerEditForm(Employee emp);
+   public String deleteEmployeeById(int no);
 }

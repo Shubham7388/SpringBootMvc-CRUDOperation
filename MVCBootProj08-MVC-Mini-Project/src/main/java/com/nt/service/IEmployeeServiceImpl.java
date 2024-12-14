@@ -40,4 +40,10 @@ public class IEmployeeServiceImpl implements IEmployeeService
 		int idVal=empRepo.save(emp).getEmpno();
 		return "Employee is updated with id:: "+idVal;
 	}
+
+	@Override
+	public String deleteEmployeeById(int no) {
+		empRepo.deleteById(no);
+		return "Employee deleted with id:: "+no;
+	}
 }

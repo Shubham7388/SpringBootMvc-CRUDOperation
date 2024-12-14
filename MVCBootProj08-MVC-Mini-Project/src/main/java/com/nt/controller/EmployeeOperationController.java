@@ -89,4 +89,12 @@ public class EmployeeOperationController
 		aatrs.addFlashAttribute("editMsg", msg);
 		return "redirect:report";
 	}
+	
+	@GetMapping("/delete")
+	public String deleteEmpsById(RedirectAttributes attrs,@RequestParam("no") int no)
+	{
+		String msg=empService.deleteEmployeeById(no);
+		attrs.addFlashAttribute("deleteMsg", msg);
+		return "redirect:report";
+	}
 }
