@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page isELIgnored="false"  %>
 
 <style>
 body {
@@ -78,12 +79,12 @@ td img {
 </style>
 
 <body>
-
 	<c:choose>
 		<c:when test="${!empty empResult}">
-			<h1>Employee Report</h1>
-
+			<h1>Employee Report</h1>		
 			<div class="icon-container">
+			<a href="search"><img src="images/loupe.png"
+					alt="Search Employee"></a>
 				<a href="register"><img src="images/add-user.png"
 					alt="Add Employee"></a> <a href="./"><img
 					src="images/home.png" alt="Home"></a>

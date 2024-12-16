@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -45,5 +46,20 @@ public class IEmployeeServiceImpl implements IEmployeeService
 	public String deleteEmployeeById(int no) {
 		empRepo.deleteById(no);
 		return "Employee deleted with id:: "+no;
+	}
+
+	@Override
+	public List<Employee> showEmpByDynamicSearch(Employee emp) {
+		if(emp.getEname().equalsIgnoreCase("") || emp.getEname().length() == 0)
+		{
+			emp.setEname(null);
+		}
+		if(emp.getJob().equalsIgnoreCase("") || emp.getJob().length() == 0)
+		{
+			emp.setJob(null);
+		}
+		Example example=Example.of(emp);
+		List<Employee> list=empRepo.findAll(example);
+		return list;
 	}
 }

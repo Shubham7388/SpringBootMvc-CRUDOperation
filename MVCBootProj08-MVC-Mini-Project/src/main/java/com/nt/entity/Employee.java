@@ -16,9 +16,9 @@ import lombok.RequiredArgsConstructor;
 @Entity
 @Table(name="emp")
 @Data
-@RequiredArgsConstructor
-@AllArgsConstructor
-@NoArgsConstructor
+//@RequiredArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class Employee 
 {
 	@Id
@@ -26,17 +26,17 @@ public class Employee
 	@GeneratedValue(generator = "gen1", strategy = GenerationType.SEQUENCE)
 	private Integer empno;
 	
-	@NonNull
+//	@NonNull
 	@Column(length = 50)
 	private String ename;
 	
-	@NonNull
+//   @NonNull
 	@Column(length = 50)
 	private String job;
 	
-	@NonNull
+//	@NonNull
 	private Double Sal;
 	
-	@NonNull
-	private Integer deptno=20;
+//	@NonNull
+	private Integer deptno;
 }

@@ -29,10 +29,10 @@ public class EmployeeOperationController
 	}
 	
 	@GetMapping("/report")
-	public String showEmpReport(Map<String, Object> map)
+	public String showEmpReport(Map<String, Object> map, @ModelAttribute("emplye") Employee emplye)
 	{
-		List<Employee> emp=empService.showAllEmps();
-		map.put("empResult", emp);
+		List<Employee> emp1=empService.showAllEmps();
+		map.put("empResult", emp1);
 		return "emp_detail";
 	}
 	
@@ -96,5 +96,20 @@ public class EmployeeOperationController
 		String msg=empService.deleteEmployeeById(no);
 		attrs.addFlashAttribute("deleteMsg", msg);
 		return "redirect:report";
+	}
+	
+	@GetMapping("/search")
+	public String showSearchForm(@ModelAttribute("emplye") Employee emp)
+	{
+		return "emp_search";
+	}
+	
+	@PostMapping("/search")
+	public String submitSearchForm(Map<String,Object> map,@ModelAttribute("emplye") Employee emplye)
+	{
+		System.out.println(emplye);
+		List<Employee> list=empService.showEmpByDynamicSearch(emplye);
+		map.put("empResult",list);
+		return "emp_detail";
 	}
 }

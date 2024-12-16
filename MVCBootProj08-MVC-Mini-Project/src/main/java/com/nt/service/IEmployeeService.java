@@ -11,4 +11,5 @@ public interface IEmployeeService
    public  Employee getEmployee(int no);
    public String registerEditForm(Employee emp);
    public String deleteEmployeeById(int no);
+   public List<Employee> showEmpByDynamicSearch(Employee emp);
 }
