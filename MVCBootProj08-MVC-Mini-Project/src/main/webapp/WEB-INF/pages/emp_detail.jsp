@@ -146,7 +146,7 @@ td img {
 		</c:otherwise>
 	</c:choose>
 	<div class="back-button">
-		<a href="./"><img src="images/back.png" alt="Back"></a>
+		<a href="report"><img src="images/back.png" alt="Back"></a>
 	</div>
 
 </body>

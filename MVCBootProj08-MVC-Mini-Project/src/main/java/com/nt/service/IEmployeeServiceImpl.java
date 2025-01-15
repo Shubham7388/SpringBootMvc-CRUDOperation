@@ -58,7 +58,7 @@ public class IEmployeeServiceImpl implements IEmployeeService
 		{
 			emp.setJob(null);
 		}
-		Example example=Example.of(emp);
+		Example<Employee> example=Example.of(emp);
 		List<Employee> list=empRepo.findAll(example);
 		return list;
 	}
